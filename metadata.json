@@ -1,0 +1,5 @@
+{
+  "name": "Nightcore Studio",
+  "description": "Upload a song and apply nightcore effects like speed, pitch, reverb, and bass boost.",
+  "requestFramePermissions": []
+}
