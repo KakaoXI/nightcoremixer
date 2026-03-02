@@ -18,12 +18,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 20
           cache: npm
 
-      - run: npm ci
+      # Workaround for Tailwind oxide native optional deps issue on CI
+      - run: rm -rf node_modules package-lock.json
+
+      - run: npm install --include=optional
       - run: npm run build
 
       - uses: actions/upload-pages-artifact@v3
